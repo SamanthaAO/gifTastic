@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var topics = ["Adventure Time", "Spongebob", "Fairly OddParents", "Powerpuff Girls", "Family Guy", "South Park", "The Simpsons", "Tom and Jerry", "Teenage Mutant Ninja Turtles", "Avatar"];
+    var topics = ["Adventure Time", "Spongebob", "Fairly OddParents", "Powerpuff Girls", "Family Guy", "South Park", "The Simpsons", "Tom and Jerry", "Teenage Mutant Ninja Turtles", "Avatar: the last airbender"];
 
     function createButtons() {
         var button = "";
@@ -24,6 +24,7 @@ $(document).ready(function () {
 
     $("#buttonArea").on("click", ".gifButton", function(){
         $("#gifArea").empty();
+        $("#jokeDiv").empty();
 
         var searchTerm = $(this).attr("id");
         console.log(searchTerm)
@@ -60,6 +61,18 @@ $(document).ready(function () {
                   
         })
 
+        var jokeURL = "https://geek-jokes.sameerkumar.website/api";
+
+        $.ajax({
+            url: jokeURL,
+            method: "GET"
+        })
+        .then(function(joke){
+            var jokeDiv = $("<div>").text(joke);
+            jokeDiv.attr("id", "jokeDiv");
+            $("#buttonArea").prepend(jokeDiv);
+        })
+
     });
 
     $("#gifArea").on("click", ".gif", function(){
@@ -75,6 +88,8 @@ $(document).ready(function () {
         $(this).attr("state", "still");
     }
     });
+
+
 
 
 })
