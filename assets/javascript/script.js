@@ -46,7 +46,7 @@ $(document).ready(function () {
                     var insert = "";
                     results.forEach(function (result) {
                         insert +=
-                            `<div class="col-sm-4">
+                            `<div class="col-lg-4 col-md-6">
                         <div class="card my-2" style="width: 18rem;">
                             <img class="card-img-top gif" src="${result.images.fixed_width_still.url}" alt="${result.title}" state = "still" still="${result.images.fixed_width_still.url}" animate="${result.images.fixed_width.url}">
                             <div class="card-body">
