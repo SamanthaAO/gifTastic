@@ -57,40 +57,24 @@ $(document).ready(function () {
             $("#gifArea").html(insert);
             }
             createGifCard();
-
-            // for (var i=0; i< results.length; i++){
-
-
-                
-            //     var gifDiv = $("<div>");
-            //     var gifImage = $("<img>");
-
-            //     gifImage.attr("src", results[i].images.fixed_width_still.url);
-            //     gifImage.attr("still", results[i].images.fixed_width_still.url);
-            //     gifImage.attr("animate", results[i].images.fixed_width.url);
-            //     gifImage.addClass("gif");
-                
-            //     gifDiv.append(results[i].title);
-            //     gifDiv.append(gifImage);
-            //     gifDiv.append(results[i].rating);
-
-            //     $("#gifArea").append(gifDiv);
-            // }
                   
         })
-
-
-
-
-
-
-
 
     });
 
     $("#gifArea").on("click", ".gif", function(){
 
+       var state = $(this).attr("state");
 
-
+    if(state === "still"){
+        $(this).attr("src", $(this).attr("animate"));
+        $(this).attr("state", "animate");
+    }
+    else{
+        $(this).attr("src", $(this).attr("still"));
+        $(this).attr("state", "still");
+    }
     });
+
+
 })
