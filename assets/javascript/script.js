@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    
+    var num = 10;
     var topics = ["Adventure Time", "Spongebob", "Fairly OddParents", "Powerpuff Girls", "Family Guy", "South Park", "The Simpsons", "Tom and Jerry", "Teenage Mutant Ninja Turtles", "Avatar: the last airbender"];
 
     function createButtons() {
@@ -22,13 +24,13 @@ $(document).ready(function () {
         }
     });
 
-    $("#buttonArea").on("click", ".gifButton", function(){
+    $("#buttonArea").on("click", ".gifButton", function makeGifs(){
         $("#gifArea").empty();
         $("#jokeDiv").empty();
 
         var searchTerm = $(this).attr("id");
-        console.log(searchTerm)
-        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=TBxfYQsStw6XpZp4RtzXaPa38rSfVCyY&limit=10"
+        
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=TBxfYQsStw6XpZp4RtzXaPa38rSfVCyY&limit=" + num;
 
 
         $.ajax({
@@ -37,9 +39,8 @@ $(document).ready(function () {
         })
         .then(function(response){
             var results = response.data;
-            console.log(results);
 
-            function createGifCard (){
+            function createGifCards (){
                 var insert = "";
                 results.forEach(function (result){
                     insert += 
@@ -57,9 +58,18 @@ $(document).ready(function () {
             
             $("#gifArea").html(insert);
             }
-            createGifCard();
-                  
+            createGifCards();
+        
+            
         })
+    })
+    
+    console.log(searchTerm);
+
+        
+        $("#loadMore").append("<button type='button' class='btn btn-primary mt-2 text-center' id ='loadMore'>Load more gifs</button>");
+
+
 
         var jokeURL = "https://geek-jokes.sameerkumar.website/api";
 
@@ -72,24 +82,31 @@ $(document).ready(function () {
             jokeDiv.attr("id", "jokeDiv");
             $("#buttonArea").prepend(jokeDiv);
         })
+    
 
-    });
 
     $("#gifArea").on("click", ".gif", function(){
 
-       var state = $(this).attr("state");
+        var state = $(this).attr("state");
+    
+        if(state === "still"){
+            $(this).attr("src", $(this).attr("animate"));
+            $(this).attr("state", "animate");
+        }
+        else{
+            $(this).attr("src", $(this).attr("still"));
+            $(this).attr("state", "still");
+        }
+        });
 
-    if(state === "still"){
-        $(this).attr("src", $(this).attr("animate"));
-        $(this).attr("state", "animate");
-    }
-    else{
-        $(this).attr("src", $(this).attr("still"));
-        $(this).attr("state", "still");
-    }
     });
 
+   
 
 
+    // $("#loadMore").on("click", "#loadMore", function(){
+    //     num = num + 10;
+    //     $("#gifArea").empty();
 
-})
+
+// })
