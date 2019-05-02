@@ -13,8 +13,7 @@
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    <!-- jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -25,6 +24,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+        <!-- jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="assets/javascript/script.js"></script>
 
@@ -39,22 +41,25 @@
     </div>
 
     <div class="container">
+
         <div class = "row">
-            <div class ="col-sm-12" id="buttonArea"></div>
-        </div>
-        <div class = "row">
-            
-            <div class ="col-sm-8" id="gifArea"></div>
-        
-            <div class ="col-sm-4 mt-5" id="searchArea"> 
+            <div class ="col-sm-6 mt-5" id="searchArea"> 
                 <form id ="form">
                 <div class="form-group mb-3">
                         <label for="newButtonMaker">Make a New Button Here</label>
                         <input type="text" class="form-control" id="buttonInput" placeholder="New Button Name">
                 </div>
-                <button type="button" class="btn btn-light mt-1" id="newButtonMaker">Create New Button</button>
+                <button type="button" class="btn btn-light mb-5" id="newButtonMaker">Create New Button</button>
                 </form>
             </div>
+        </div>
+
+
+        <div class = "row">
+            <div class ="col-sm-12 mb-5" id="buttonArea"></div>
+        </div>
+
+        <div class = "row" id="gifArea">
             
         </div>
     </div>
