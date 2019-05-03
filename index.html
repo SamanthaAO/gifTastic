@@ -45,16 +45,16 @@
 
     <div class="container">
 
-        <div class="row mainText mt-5">
-            <div class="col-sm-8 mt-2" id="buttonArea"></div>
+        <div class="row mainText mt-5 mb-2">
+            <div class="col-sm-8 my-2" id="buttonArea"></div>
 
-            <div class="col-sm-4 mt-2" id="searchArea">
-                <form id="form">
+            <div class="col-sm-4 my-2" id="searchArea">
+                <form id="form" onsubmit="return false">
                     <div class="form-group">
                         <label for="newButtonMaker">Make a New Button Here</label>
                         <input type="text" class="form-control" id="buttonInput" placeholder="New Button Name">
                     </div>
-                    <button type="button" class="btn btn-outline-dark mb-5" id="newButtonMaker">Create New
+                    <button type="submit" class="btn btn-outline-dark mb-5" id="newButtonMaker">Create New
                         Button</button>
                 </form>
             </div>

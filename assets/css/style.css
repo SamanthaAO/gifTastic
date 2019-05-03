@@ -13,6 +13,7 @@ body {
     -1px 1px 0 #000,
      1px 1px 0 #000;
     font-family: 'Modak', cursive;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 h1.display-4 {
     font-size: 75px;
@@ -25,11 +26,10 @@ h1.display-4 {
 .mainText, .card {
     background-color: white;
     border: 2px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card-title {
-    
-}
+
 
 
 

@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
+    //variables
     num = 10;
     var searchterm;
-    var topics = ["Adventure Time", "Spongebob", "Fairly OddParents", "Powerpuff Girls", "Family Guy", "South Park", "The Simpsons", "Tom and Jerry", "Teenage Mutant Ninja Turtles", "Avatar: the last airbender"];
+    var topics = ["Adventure Time", "Spongebob", "Fairly OddParents", "Powerpuff Girls", "Family Guy", "South Park", "The Simpsons", "Tom and Jerry", "Teenage Mutant Ninja Turtles", "Avatar: The Last Airbender"];
 
+    //function to create now giff creating buttons
     function createButtons() {
         var button = "";
         topics.forEach(function (topic) {
@@ -13,7 +15,9 @@ $(document).ready(function () {
     }
     createButtons();
 
-    $("#newButtonMaker").on("click", function () {
+
+
+    $("#newButtonMaker").on("click", function NewButtonMakerClick() {
         var newButton = $("#buttonInput").val();
 
         if (newButton) {
@@ -23,6 +27,20 @@ $(document).ready(function () {
             createButtons();
         }
     });
+
+    $("#buttonInput").on("keypress", function(e){
+        if(e.which == 13){
+            var newButton = $("#buttonInput").val();
+
+        if (newButton) {
+            topics.push(newButton);
+            $("#buttonArea").empty();
+            document.getElementById("form").reset();
+            createButtons();
+        }
+        }
+    });
+
 
     $("#buttonArea").on("click", ".gifButton", function () {
         $("#gifArea").empty();
