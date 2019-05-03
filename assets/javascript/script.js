@@ -69,7 +69,7 @@ $(document).ready(function () {
 
             })
 
-            $("#loadMore").append("<button type='button' class='btn btn-outline-dark mt-2 text-center' id ='loadMore'>Load more gifs</button>");
+            $("#loadMore").append("<button type='button' class='btn btn-light btn-outline-dark btn-lg btn-block mt-2 ' id ='loadMore'>Load more gifs</button>");
 
         // var jokeURL = "https://geek-jokes.sameerkumar.website/api";
 
