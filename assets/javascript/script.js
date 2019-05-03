@@ -44,14 +44,18 @@ $(document).ready(function () {
 
                 function createGifCard() {
                     var insert = "";
-                    results.forEach(function (result) {
+                    results.forEach(function (result, i) {
                         insert +=
-                            `<div class="col-lg-4 col-md-6">
+                            `<div class="col-lg-4 col-md-6" id="card${i}">
                         <div class="card my-2" style="width: 18rem;">
                             <img class="card-img-top gif" src="${result.images.fixed_width_still.url}" alt="${result.title}" state = "still" still="${result.images.fixed_width_still.url}" animate="${result.images.fixed_width.url}">
                             <div class="card-body">
                                 <h5 class="card-title">${result.title}</h5>
                                 <p class="card-text">Rating: ${result.rating}</p>
+                                <a href="${result.images.original.webp}" download>
+                                    <button type="button">Download!</button>
+                                </a>
+                                <button type="button" class="favorite" id="${i}">Favorite!</button>
                             </div>
                         </div>
                   </div>`
@@ -113,7 +117,7 @@ $(document).ready(function () {
                     var insert = "";
                     results.forEach(function (result) {
                         insert +=
-                            `<div class="col-sm-4">
+                            `<div class="col-lg-4 col-md-6">
                         <div class="card my-2" style="width: 18rem;">
                             <img class="card-img-top gif" src="${result.images.fixed_width_still.url}" alt="${result.title}" state = "still" still="${result.images.fixed_width_still.url}" animate="${result.images.fixed_width.url}">
                             <div class="card-body">
@@ -133,6 +137,12 @@ $(document).ready(function () {
 
 
     })
+
+    $("#gifArea").on("click", ".favorite", function () {
+        console.log(this.id);
+        
+
+    });
 
 
 })
