@@ -7,7 +7,7 @@ $(document).ready(function () {
     function createButtons() {
         var button = "";
         topics.forEach(function (topic) {
-            button += `<button type="button" class="btn btn-primary mt-2 gifButton" id = "${topic}">${topic}</button> `;
+            button += `<button type="button" class="btn btn-outline-dark mt-2 gifButton" id = "${topic}">${topic}</button> `;
         });
         $("#buttonArea").html(button);
     }
@@ -27,6 +27,7 @@ $(document).ready(function () {
     $("#buttonArea").on("click", ".gifButton", function () {
         $("#gifArea").empty();
         $("#jokeDiv").empty();
+        $("#loadMore").empty();
 
         searchTerm = $(this).attr("id");
         window.searchTerm = searchTerm;
@@ -68,19 +69,19 @@ $(document).ready(function () {
 
             })
 
-            $("#loadMore").append("<button type='button' class='btn btn-primary mt-2 text-center' id ='loadMore'>Load more gifs</button>");
+            $("#loadMore").append("<button type='button' class='btn btn-outline-dark mt-2 text-center' id ='loadMore'>Load more gifs</button>");
 
-        var jokeURL = "https://geek-jokes.sameerkumar.website/api";
+        // var jokeURL = "https://geek-jokes.sameerkumar.website/api";
 
-        $.ajax({
-            url: jokeURL,
-            method: "GET"
-        })
-            .then(function (joke) {
-                var jokeDiv = $("<div>").text(joke);
-                jokeDiv.attr("id", "jokeDiv");
-                $("#buttonArea").prepend(jokeDiv);
-            })
+        // $.ajax({
+        //     url: jokeURL,
+        //     method: "GET"
+        // })
+        //     .then(function (joke) {
+        //         var jokeDiv = $("<div>").text(joke);
+        //         jokeDiv.attr("id", "jokeDiv");
+        //         $("#buttonArea").prepend(jokeDiv);
+        //     })
 
     });
 

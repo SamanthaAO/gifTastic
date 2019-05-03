@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- googleFont-->
+    <link href="https://fonts.googleapis.com/css?family=Modak|Ubuntu" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    
+
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -25,7 +27,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-        <!-- jquery-->
+    <!-- jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="assets/javascript/script.js"></script>
@@ -33,35 +35,34 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+    <div class="jumbotron jumbotron-fluid py-4">
+        <div class="container text-center">
             <h1 class="display-4">GifTastic: Cartoon Edition</h1>
-            <p class="lead">Click on a button to display gifs from that cartoon, or add your own buttons using the search feature.</p>
+            <p class="lead">Click on a button to display gifs from that cartoon, or add your own buttons using the
+                search feature.</p>
         </div>
     </div>
 
     <div class="container">
 
-        <div class = "row">
-            <div class ="col-sm-6 mt-5" id="searchArea"> 
-                <form id ="form">
-                <div class="form-group mb-3">
+        <div class="row mainText mt-5">
+            <div class="col-sm-8 mt-2" id="buttonArea"></div>
+
+            <div class="col-sm-4 mt-2" id="searchArea">
+                <form id="form">
+                    <div class="form-group">
                         <label for="newButtonMaker">Make a New Button Here</label>
                         <input type="text" class="form-control" id="buttonInput" placeholder="New Button Name">
-                </div>
-                <button type="button" class="btn btn-light mb-5" id="newButtonMaker">Create New Button</button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark mb-5" id="newButtonMaker">Create New
+                        Button</button>
                 </form>
             </div>
         </div>
 
+        <div class="row text-center" id="gifArea"></div>
 
-        <div class = "row">
-            <div class ="col-sm-12 mb-5" id="buttonArea"></div>
-        </div>
-
-        <div class = "row text-center" id="gifArea"></div>
-
-        <div class = "row text-center" id="loadMore"></div>
+        <div class="row" id="loadMore"></div>
     </div>
 </body>
 
