@@ -46,7 +46,7 @@ function createGifCard(isApiCall) {
         //gets rid of favorite button if card already in favorites
         var btnHtml = (!isAlreadyFavorite(result.id)) ? `<button type="button" class="btn btn-outline-dark favorite" id="${i}">Add to Favorites</button>` : '';
         insert +=
-            `<div class="col-lg-4 col-md-6 text-center" id="card${i}">
+            `<div class="col-lg-4 col-md-6" id="card${i}">
         <div class="card my-2" style="width: 18rem;">
         <h5 class="card-header">${result.title}</h5>
             <img class="card-img-top gif" src="${result.images.fixed_width_still.url}" alt="${result.title}" state = "still" still="${result.images.fixed_width_still.url}" animate="${result.images.fixed_width.url}">
@@ -67,6 +67,9 @@ function createGifCard(isApiCall) {
 
     //displays title for gifs
     $("#titleArea").html("<div class='jumbotron jumbotron-fluid p-0 text-center'><h1 class='display-4'>GIFs</h1></div>");
+
+    //creates load more button
+    $("#loadMore").append("<button type='button' class='btn btn-light btn-outline-dark btn-lg btn-block mt-2 ' id ='loadMore'>Load more gifs</button>");
     
 }
 
@@ -121,8 +124,7 @@ $(document).ready(function () {
         //gets information from api
         apiCall(queryUrl);
         
-        //creates load more button
-        $("#loadMore").append("<button type='button' class='btn btn-light btn-outline-dark btn-lg btn-block mt-2 ' id ='loadMore'>Load more gifs</button>");
+        
 
     });
 
