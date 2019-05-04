@@ -46,7 +46,7 @@ function createGifCard(isApiCall) {
         //gets rid of favorite button if card already in favorites
         var btnHtml = (!isAlreadyFavorite(result.id)) ? `<button type="button" class="btn btn-outline-dark favorite" id="${i}">Add to Favorites</button>` : '';
         insert +=
-            `<div class="col-lg-4 col-md-6" id="card${i}">
+            `<div class="col-lg-4 col-md-6 text-center" id="card${i}">
         <div class="card my-2" style="width: 18rem;">
         <h5 class="card-header">${result.title}</h5>
             <img class="card-img-top gif" src="${result.images.fixed_width_still.url}" alt="${result.title}" state = "still" still="${result.images.fixed_width_still.url}" animate="${result.images.fixed_width.url}">
