@@ -48,10 +48,11 @@ function createGifCard(isApiCall) {
         insert +=
             `<div class="col-lg-4 col-md-6" id="card${i}">
         <div class="card my-2" style="width: 18rem;">
+        <h5 class="card-header">${result.title}</h5>
             <img class="card-img-top gif" src="${result.images.fixed_width_still.url}" alt="${result.title}" state = "still" still="${result.images.fixed_width_still.url}" animate="${result.images.fixed_width.url}">
-            <div class="card-body">
-                <h5 class="card-title">${result.title}</h5>
-                <p class="card-text">Rating: ${result.rating}</p>
+            <div class="card-body p-2">
+                
+                <p class="card-text mb-2">Rating: ${result.rating}</p>
                 
                 ${btnHtml}
             </div>
