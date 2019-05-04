@@ -1,10 +1,10 @@
 //variables
 num = 12;
 var searchterm;
-var topics = ["Adventure Time", "SpongeBob SquarePants", "Fairly OddParents", "Powerpuff Girls", "Family Guy", "South Park", "The Simpsons", "Tom and Jerry", "Teenage Mutant Ninja Turtles", "Avatar: The Last Airbender", "Courage the Cowardly Dog", "Dexter's Labratory"];
+var topics = ["Adventure Time", "SpongeBob SquarePants", "Fairly OddParents", "Powerpuff Girls", "Family Guy", "South Park", "The Simpsons", "Tom and Jerry", "Teenage Mutant Ninja Turtles", "Avatar: The Last Airbender", "Courage the Cowardly Dog", "Pok&egrave;mon", "Yu-Gi-Oh!"];
 var results = [];
 var favs = [];
-var storedfavs = [];
+
 
 //checks to see if a card is already in favorites array
 function isAlreadyFavorite(id){
@@ -38,8 +38,9 @@ function apiCall(queryUrl){
 //creates gifCards for gifs displayed from api and favorites
 function createGifCard(isApiCall) {
     var insert = "";
+    $("#loadMore").empty();
     //looks to see which set of data to use to create cards with
-    var thisArray = (isApiCall) ? results : storedfavs;
+    var thisArray = (isApiCall) ? results : favs;
 
     //creates one card for each 
     thisArray.forEach(function (result, i) {
@@ -114,6 +115,7 @@ $(document).ready(function () {
         $("#gifArea").empty();
         $("#jokeDiv").empty();
         $("#loadMore").empty();
+        num = 12;
 
         //takes name from button and makes it search term
         searchTerm = $(this).attr("id");
@@ -176,14 +178,15 @@ $(document).ready(function () {
     //view favorites button sends you to favorite gifs screen to fiew favorite gifs
     $("#favorites").on("click", function () {
         
-        //gets rid of load more button on the bottom
-        $("#loadMore").empty();
-
         //pulls fav list from local storage
-        storedfavs = JSON.parse(localStorage.getItem("favs"));
+        favs = JSON.parse(localStorage.getItem("favs"));
+        
 
         //uses fav array to createGifCard
         createGifCard(false);
+
+        //gets rid of load more button on the bottom
+        $("#loadMore").empty();
 
         //changes title area to say favorite gifs
         $("#titleArea").html("<div class='jumbotron jumbotron-fluid p-0 text-center'><h1 class='display-4'>Favorite GIFs</h1></div>");
