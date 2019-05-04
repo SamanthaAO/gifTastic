@@ -40,7 +40,7 @@ function createGifCard(isApiCall) {
     var thisArray = (isApiCall) ? results : favs;
 
     thisArray.forEach(function (result, i) {
-        var btnHtml = (!isAlreadyFavorite(result.id)) ? `<button type="button" class="favorite" id="${i}">Favorite!</button>` : '';
+        var btnHtml = (!isAlreadyFavorite(result.id)) ? `<button type="button" class="btn btn-outline-dark favorite" id="${i}">Add to Favorites</button>` : '';
         insert +=
             `<div class="col-lg-4 col-md-6" id="card${i}">
         <div class="card my-2" style="width: 18rem;">
@@ -48,17 +48,18 @@ function createGifCard(isApiCall) {
             <div class="card-body">
                 <h5 class="card-title">${result.title}</h5>
                 <p class="card-text">Rating: ${result.rating}</p>
-                <a href="${result.images.original.webp}" download>
-                    <button type="button">Download!</button>
-                </a>
+                
                 ${btnHtml}
             </div>
         </div>
   </div>`
 
-    })
 
+    })
     $("#gifArea").html(insert);
+    
+    $("#titleArea").html("<div class='jumbotron jumbotron-fluid p-0 text-center'><h1 class='display-4'>GIFs</h1></div>");
+    
 }
 
 function contentPresent(newButton){
@@ -76,9 +77,6 @@ function contentPresent(newButton){
 
 
 $(document).ready(function () {
-
-    
-    
 
     createButtons();
 
@@ -105,6 +103,7 @@ $(document).ready(function () {
         $("#gifArea").empty();
         $("#jokeDiv").empty();
         $("#loadMore").empty();
+        num = 10;
 
         searchTerm = $(this).attr("id");
         //window.searchTerm = searchTerm;
@@ -168,7 +167,9 @@ $(document).ready(function () {
     });
 
     $("#favorites").on("click", function () {
+        $("#loadMore").empty();
         createGifCard(false);
+        $("#titleArea").html("<div class='jumbotron jumbotron-fluid p-0 text-center'><h1 class='display-4'>Favorite GIFs</h1></div>");
     })
 
 
