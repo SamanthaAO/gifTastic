@@ -1,7 +1,7 @@
 //variables
-num = 10;
+num = 12;
 var searchterm;
-var topics = ["Adventure Time", "Spongebob", "Fairly OddParents", "Powerpuff Girls", "Family Guy", "South Park", "The Simpsons", "Tom and Jerry", "Teenage Mutant Ninja Turtles", "Avatar: The Last Airbender"];
+var topics = ["Adventure Time", "SpongeBob SquarePants", "Fairly OddParents", "Powerpuff Girls", "Family Guy", "South Park", "The Simpsons", "Tom and Jerry", "Teenage Mutant Ninja Turtles", "Avatar: The Last Airbender", "Courage the Cowardly Dog", "Dexter's Labratory"];
 var results = [];
 var favs = [];
 var storedfavs = [];
@@ -116,7 +116,7 @@ $(document).ready(function () {
         searchTerm = $(this).attr("id");
         
 
-        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=TBxfYQsStw6XpZp4RtzXaPa38rSfVCyY&limit=10";
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=TBxfYQsStw6XpZp4RtzXaPa38rSfVCyY&limit=12";
 
         //gets information from api
         apiCall(queryUrl);
@@ -144,7 +144,7 @@ $(document).ready(function () {
     //functionality of load more button increases num so that more gifs are loaded
     $("#loadMore").on("click", "#loadMore", function(){
 
-        num = num +10;
+        num = num +12;
         var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=TBxfYQsStw6XpZp4RtzXaPa38rSfVCyY&limit=" + num;
         apiCall(queryUrl);
 
